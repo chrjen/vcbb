@@ -1,0 +1,9 @@
+# Ignore IDE specific settings.
+.vscode
+
+# Ignored compiled binaries.
+vcbb
+vcbb.exe
+
+# Ignore any possible output testing images.
+*.png 
