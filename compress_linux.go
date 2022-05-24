@@ -1,15 +1,11 @@
 package main
 
-import (
-	"github.com/DataDog/zstd"
-)
+import "github.com/DataDog/zstd"
 
 func Decompress(buf []byte) ([]byte, error) {
-	d, err := zstd.Decompress(nil, buf)
-	return d, err
+	return zstd.Decompress(nil, buf)
 }
 
 func Compress(buf []byte) ([]byte, error) {
-	d, err := zstd.Compress(nil, buf)
-	return d, err
+	return zstd.Compress(nil, buf)
 }
