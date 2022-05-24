@@ -4,17 +4,26 @@ package main
 
 import (
 	"bytes"
+	"io"
 	"io/ioutil"
 
 	"github.com/klauspost/compress/zstd"
 )
 
 func Decompress(buf []byte) ([]byte, error) {
-
-	d, err := zstd.NewReader(bytes.NewReader(buf))
+	d, err := zstd.NewReader(nil)
 	if err != nil {
 		return nil, err
 	}
 
-	return ioutil.ReadAll(d)
+	return d.DecodeAll(buf, nil)
+}
+
+func Compress(buf []byte) ([]byte, error) {
+	e, err := zstd.NewWriter(nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return e.EncodeAll(buf, nil), nil
 }
