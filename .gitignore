@@ -6,4 +6,5 @@ vcbb
 vcbb.exe
 
 # Ignore any possible output testing images.
-*.png 
+*.png
+!/doc/*.png 
