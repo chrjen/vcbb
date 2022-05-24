@@ -1,14 +1,8 @@
-//go:build !linux
+//go:build !(linux && amd64)
 
 package main
 
-import (
-	"bytes"
-	"io"
-	"io/ioutil"
-
-	"github.com/klauspost/compress/zstd"
-)
+import "github.com/klauspost/compress/zstd"
 
 func Decompress(buf []byte) ([]byte, error) {
 	d, err := zstd.NewReader(nil)
