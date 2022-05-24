@@ -24,12 +24,6 @@ type encodeCmdT struct {
 	Layer      uint   `cli:"l,layer" usage:"set blueprint layer: 0=logic, 1=on, 2=off" dft:"0"`
 }
 
-var encodeDesc = fmt.Sprintf(
-	`example: %s encode [options] <file>
-	Takes in a PNG image containing the circuit and outputs a corresponding blueprint.`,
-	filepath.Base(os.Args[0]),
-)
-
 var encodeCmd = &cli.Command{
 	Name:    "encode",
 	Aliases: []string{"e"},
