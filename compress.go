@@ -5,7 +5,7 @@ package main
 import "github.com/klauspost/compress/zstd"
 
 func Decompress(buf []byte) ([]byte, error) {
-	d, err := zstd.NewReader(nil)
+	d, err := zstd.NewReader(nil, zstd.WithDecoderMaxMemory(1<<30))
 	if err != nil {
 		return nil, err
 	}
